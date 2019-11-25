@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquary.js"></script>
+	<script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.12.1/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<script type="text/javascript">
+		
+
+		$("document").ready(function(){
+			$(".fa-bars").click(function(){
+				
+            	$(".div").animate({width:'100%'});
+            	$("h2").fadeIn();
+            	$(".fa-bars").fadeOut();
+    				
+		 	
+				});
+
+
+			$(".fa-times").click(function(){
+				
+            	$(".div").animate({width:'0'});
+            	$("h2").fadeOut();
+            	$(".fa-bars").fadeIn();
+            	
+
+    				
+		 	
+				});
+
+			$(".btn-danger").click(function(){
+				$(".blue").fadeOut();
+				$(".black").fadeOut();
+				$(".red").fadeIn();
+				
+			});
+			$(".btn-info").click(function(){
+				$(".red").fadeOut();
+				$(".black").fadeOut();
+				$(".blue").fadeIn();
+			});
+			$(".btn-inverse").click(function(){
+				$(".blue").fadeOut();
+				$(".red").fadeOut();
+				$(".black").fadeIn();
+
+			});
+			$(".btn-warning").click(function(){
+				$(".blue").fadeIn();
+				$(".red").fadeIn();
+				$(".black").fadeIn();
+
+			});
+
+		}); 
+
+		$("document").keydown(function(){
+			$(".blue").fadeOut();
+				$(".red").fadeOut();
+				$(".black").fadeIn();
+
+		});
+
+		
+	</script>
+	<style type="text/css">
+		body{
+			margin: 0;
+			height: 5000px;
+		}
+		@font-face{
+			font-family: YeonSung-Regular;
+			src:url(YeonSung-Regular.ttf);
+		}
+		h2{
+				color: tomato!important;
+			display: none;
+			opacity: 1!important;
+			font-family: YeonSung-Regular;
+		}
+		
+		.btn{
+			 margin: 0 auto;
+
+		}
+		.mbtn{
+			margin: 0 auto;
+			width: 250px;
+		}
+		.red{
+			display: inline-block;
+			margin: 5px;
+			width:  100px;
+
+			transition: all 0.5s ease;
+			height: 100px;
+			background-color: red;
+			
+		}
+		.blue{
+			box-shadow: 10px 10px 10px grey;
+			display: inline-block;
+			margin: 5px;
+			height: 100px;
+			width:  100px;
+
+			background-color: blue;
+			
+		}
+		.black{
+			display: inline-block;
+			margin: 5px;
+			width:  100px;
+			height: 100px;
+			background-color: black;
+			
+		}
+		.container{
+			width: 455px!important;
+			height: 340px!important;
+		}
+
+		i {
+			font-size: 30px;
+			color: tomato;
+		}
+		section{
+			background-image: url("https://cdn.hipwallpaper.com/i/78/84/qSbNes.jpg");
+		}
+	</style>
+
+</head>
+<body>
+	<section>
+	<i class="fas fa-bars pull-right" style="position: absolute; right: 20px; top: 40px;"></i>
+	<div style="background-color: #000; z-index: 2;height: 1000px; width: 0px ;opacity:0.8;"  class="div" >
+			<i class="fas fa-times text-right pull-right" style="position: relative; right: 20px; top: 40px;"></i>
+			<div style="padding: 200px 0;">
+				<h2 class="text-center">Home</h2>
+				<h2 class="text-center">Sobre a Navegah</h2>
+				<h2 class="text-center">Works</h2>
+				<h2 class="text-center">Contato</h2>
+			</div>
+	</div>
+	</section>
+
+	<br><br><br>
+
+	<div class="mbtn">
+		<button class="btn btn-danger">Red</button>
+		<button class="btn btn-info">blue</button>
+		<button class="btn btn-inverse">black</button>
+		<button class="btn btn-warning">Rest</button>
+	</div>
+	<br>
+
+	<div class="container">
+		<div class="red"> </div>
+		<div class="blue"> </div>
+		<div class="red"> </div>
+		<div class="black"> </div>
+		<div class="blue"> </div>
+		<div class="red"> </div>
+		<div class="black"> </div>
+		<div class="blue"> </div>
+		<div class="black"> </div>
+		<div class="blue"> </div>
+		<div class="black"> </div>
+		<div class="red"> </div>
+	</div>
+
+	
+</body>
+</html>
+
+
+
+
