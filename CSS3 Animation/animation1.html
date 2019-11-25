@@ -3,11 +3,25 @@
 <head>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style> 
 .aaa {
+	display: none;
   width: 100px;
   height: 100px;
   background-color: red;
@@ -25,6 +39,7 @@
     
  }
 .icon-bar {
+	display: none;
 margin: 0 auto;
 width: 80px;
 transform: rotate(-35deg) skew(20deg,5deg);
@@ -57,7 +72,7 @@ box-shadow: -16px 24px  0 #cccccc;
 
 
  h1{
-
+ 	display: none;
  	text-align: center;
  	font-size: 60px;
  	text-transform: uppercase;
@@ -78,7 +93,7 @@ box-shadow: -16px 24px  0 #cccccc;
 
  }
 .arrow{
-	
+	display: none;
 	animation: time 2s infinite linear;
 
 
@@ -155,11 +170,20 @@ box-shadow: -16px 24px  0 #cccccc;
 	margin: 45px auto; 
 	border-radius: 50%;
 }
+#sign{
+	display: none;
+	width: 50px; 
+	height: 150px;
+	 background-color: black;
+	  margin: 50px auto;
+	   padding-top: 5px;
+}
 #card-block{
 	text-align: center;
 }
 
 .flip-card {
+
 	display: inline-block;
  	background-color: transparent;
  	width: 250px;
@@ -168,6 +192,7 @@ box-shadow: -16px 24px  0 #cccccc;
 }
 
 .inner {
+	display: none;
   position: relative;
   width: 100%;
   height: 100%;
@@ -206,15 +231,30 @@ box-shadow: -16px 24px  0 #cccccc;
 <body>
 
  <!-- Rotate -->
-<div>
-<div class="aaa"></div>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-success m-5 rotate"> Rotate on Hover </button>
+      <div class="aaa"></div>
+    </div>
+  </div>
 </div>
- <!-- Name Color animation -->
 
-<h1>Shehadeh</h1>
+ <!-- Name Color animation -->
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-info m-2 name"> Name Animation </button>
+      <h1 class="m-2 color">Shehadeh</h1>
+    </div>
+  </div>
+</div>
+
 
 <!-- iconbar  -->
-<div class="icon-bar"> 		
+<div class="text-center m-5">
+<button class="btn btn-warning icon"> IconBar 3D</button> 	
+<div class="icon-bar">
   		<a href="#" class="active"><i class="fas fa-layer-group"></i></a>  		
  		<a href="#" class="active"><i class="fas fa-glasses"></i></a>  		 
   		<a href="#" class="active"><i class="far fa-clipboard"></i></a>
@@ -222,29 +262,33 @@ box-shadow: -16px 24px  0 #cccccc;
  		<a href="" class="active"><i class="far fa-life-ring"></i></a> 
  		<a href="#" class="active"><i class="fa fa-envelope"></i></a>
 	</div>
-
+</div>
 <!-- Clock rotate -->
-
-	<div class="arrow"  style="">
+<div class="text-center m-5">
+	<button class="btn btn-danger clock m-5">Clock Stop on Hover</button>
+	<div class="arrow "  style="">
 		<div class="cont" style=" ">
 			<div class="min" style="">
 				
 			</div>
 		</div>
 	</div>
-
+</div>
 
 <!--  Traffic light  -->
-
-	<div id="sign" style="width: 50px; height: 150px; background-color: black; margin: 50px auto; padding-top: 5px;">
+<div class="text-center ">
+	<button class="btn btn-info light m-2">Traffic Light</button>
+	<div id="sign" >
 		<div class="cir cir1"></div>
 		<div class="cir cir2"></div>
 		<div class="cir cir3"></div>
 		<div style="margin: 0 auto; background-color: #000; height: 100px; width: 15px;"></div>
 	</div>
-
+</div>
 <!-- flip card -->
-
+<div class="text-center m-5">
+	<button class="btn btn-danger flip">Flip Card</button>
+</div>
 	<div id="card-block">
 		<div class="flip-card">
 			<div class="inner">
@@ -277,5 +321,27 @@ box-shadow: -16px 24px  0 #cccccc;
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$(".rotate").click(function(){
+			$(".aaa").toggle(800);
+		});
+
+		$(".name").click(function(){
+			$(".color").toggle(800);
+		});
+
+		$(".icon").click(function(){
+			$(".icon-bar").toggle(800);
+		});
+		$(".clock").click(function(){
+			$(".arrow").toggle(800);
+		});
+		$(".light").click(function(){
+			$("#sign").toggle(800);
+		});
+		$(".flip").click(function(){
+			$(".inner").toggle(800);
+		});
+	</script>
 </body>
 </html>
