@@ -1,0 +1,61 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat";
+@import "https://fonts.googleapis.com/css?family=Lato";
+/** Header and other non-related styling **/
+
+/** Hover-related CSS **/
+
+  #examples .example {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0 0 45px; }
+
+    #examples .example .hover {
+      font-size: 36px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      transition: all 0.2s ease-in-out;
+      position: relative; }
+
+
+      #examples .example .hover:before, 
+      #examples .example .hover:after {
+        content: "  ";
+        position: absolute;
+        bottom: -10px;
+        width: 0px;
+        height: 5px;
+        margin: 5px 0 0;
+        transition: all 0.2s ease-in-out;
+        transition-duration: 0.75s;
+        opacity: 0;
+        background-color: tomato; }
+
+      #examples .example .hover.hover-1:before, 
+      #examples .example .hover.hover-1:after {
+        left: 0; }
+      #examples .example .hover.hover-2:before, 
+      #examples .example .hover.hover-2:after {
+        right: 0; }
+      #examples .example .hover.hover-3:before {
+        left: 50%; }
+      #examples .example .hover.hover-3:after {
+        right: 50%; }
+      #examples .example .hover.hover-4:before {
+        left: 0; }
+      #examples .example .hover.hover-4:after {
+        right: 0; }
+    #examples .example:hover {
+      cursor: pointer; }
+      #examples .example:hover .hover:before, 
+      #examples .example:hover .hover:after {
+        width: 100%;
+        opacity: 1; }
+      #examples .example:hover .hover.hover-3:before, 
+      #examples .example:hover .hover.hover-3:after, 
+      #examples .example:hover .hover.hover-4:before, 
+      #examples .example:hover .hover.hover-4:after {
+        width: 50%; }
+
+/*# sourceMappingURL=main.css.map */

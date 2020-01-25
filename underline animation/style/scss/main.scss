@@ -1,0 +1,148 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat';
+@import 'https://fonts.googleapis.com/css?family=Lato';
+
+$animate: all 0.2s ease-in-out;
+
+/** Header and other non-related styling **/
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(#dccf39 -50%, #b65e00 150%);
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  margin: 50px auto;
+  width: 960px;
+  max-width: 100%;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  background-color: black;
+  opacity: 0.75;
+  .logo {
+    float: left;
+    font: 0/0 a;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/448277/codepen-logo-9c0933e8569e634b75ac2eb808da908d.svg) no-repeat 18px 21px;
+    background-size: 138px 24px;
+    width: 180px;
+    height: 65px;
+  }
+  .author {
+    color: white;
+    line-height: 21px + 21px + 24px;
+    margin: 0 15px 0 auto;
+    font-size: 95%;
+    a {
+      color: darken(white, 25%);
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+/** Hover-related CSS **/
+
+#examples {
+  display: flex;
+  flex-flow: column;
+  max-width: 100%;
+  width: 960px;
+  background-color: white;
+  opacity: 0.95;
+  padding: 15px 30px;
+  margin: 0 auto 30px;
+  
+  h1 {
+    font-size: 48px;
+    text-align: center;
+    margin: 30px 15px 60px;
+  }
+  
+  .example {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0 0 45px;
+    .hover {
+      font-size: 36px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      transition: $animate;
+      position: relative;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        width: 0px;
+        height: 5px;
+        margin: 5px 0 0;
+        transition: $animate;
+        transition-duration: 0.75s;
+        opacity: 0;
+        background-color: darken(orange,5%);
+      }
+      &.hover-1 {
+        &:before,
+        &:after {
+          left: 0;
+        }
+      }
+      &.hover-2 {
+        &:before,
+        &:after {
+          right: 0;
+        }
+      }
+      &.hover-3 {
+        &:before {
+          left: 50%;
+        }
+        &:after {
+          right: 50%;
+        }
+      }
+      &.hover-4 {
+        &:before {
+          left: 0;
+        }
+        &:after {
+          right: 0;
+        }
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .hover {
+        &:before,
+        &:after {
+          width: 100%;
+          opacity: 1;
+        }
+        &.hover-3,
+        &.hover-4 {
+          &:before,
+          &:after {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}
