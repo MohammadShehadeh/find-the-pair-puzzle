@@ -1,57 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DropDown</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.dropbtn /* clear */{
+			background-color: #4CAF50;
+			color: white;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+		}
 
-.dropbtn /* clear */{
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
+		.dropdown /* getout of div */ {
+			position: relative;
+			display: inline-block;
+		}
 
-.dropdown /* getout of div */ {
-  position: relative;
-  display: inline-block;
-}
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f1f1f1;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ccc;} /* background of drop list*/  
-
-.dropdown:hover .dropdown-content {display: block;}   /*  Display on hover */
-
-.dropdown:hover .dropbtn {background-color: tomato;}  /*background hover color*/
-</style>
+		.dropdown-content a:hover {background-color: #ccc;} /* background of drop list*/
+		.dropdown:hover .dropdown-content {display: block;}   /*  Display on hover */
+		.dropdown:hover .dropbtn {background-color: tomato;}  /*background hover color*/
+	</style>
 </head>
 <body>
-
-<h1>Hoverable Dropdown</h1>
-
-<div class="dropdown">     <!-- container with button adn hidden drowpdown-content --> 
- <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
-
+	<h1>Hoverable Dropdown</h1>
+	<div class="dropdown">
+		<button class="dropbtn">Dropdown</button>
+			<div class="dropdown-content">
+				<a href="#">Link 1</a>
+				<a href="#">Link 2</a>
+				<a href="#">Link 3</a>
+			</div>
+	</div>
 </body>
 </html>
