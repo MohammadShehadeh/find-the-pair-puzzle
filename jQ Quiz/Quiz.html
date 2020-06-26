@@ -1,199 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<script type="text/javascript" src="jquary.js"></script>
+	<style>
+		body{
+			height: 2000px;
+			font-size: 18px;
+		}
 
+		.scrollup {
+			background: url("images/back-to-top.png") no-repeat scroll 0 0 transparent;
+			position: fixed;
+			cursor: pointer;
+			bottom: 20px;
+			display: none;
+			height: 80px;
+			width: 80px;
+			left: 30px;
+		}
+	</style>
+	<script type="text/javascript">
+		$("document").ready(function(){
 
-    <style>
-    body{
-        height: 2000px;
-        font-size: 18px;
-    }
-    .scrollup {
-        background: url("images/back-to-top.png") no-repeat scroll 0 0 transparent;
-        position: fixed;
-        cursor: pointer;
-        bottom: 20px;
-        display: none;
-        height: 80px;
-        width: 80px;
-        left: 30px;
-    }
+			$(".bt1").click(function(){
+				$("p").css("display","block");
+			});
 
-    
-    </style>
-    <script type="text/javascript">
-        $("document").ready(function(){
+			$(".bt2").click(function(){
+				$(".true").css("color","green");
+				$(".false").css("color","red");
+			});
 
-            $(".bt1").click(function(){
-                $("p").css("display","block");
-            
-            });
+			// Calc
+			$(".sum").click(function(){
+				var x = $(".num1").val();
+				var y = $(".num2").val();
+				var z = parseInt(x) + parseInt(y);
+				$(".result").attr("value",z);
+			});
 
-            $(".bt2").click(function(){
-                $(".true").css("color","green");
-                $(".false").css("color","red");
-            
-            });
+			$(".sub").click(function(){
+				const x = $(".num1").val();
+				const y = $(".num2").val();
+				const z = x - y;
+				$(".result").attr("value",z);
+			});
 
-            // Calc
+			$(".dot").click(function(){
+				const x = $(".num1").val();
+				const y = $(".num2").val();
+				const z = x * y;
+				$(".result").attr("value",z);
+			});
 
-            $(".sum").click(function(){
-                var x = $(".num1").val();
-                var y = $(".num2").val();
-                var z = parseInt(x) + parseInt(y);
-                $(".result").attr("value",z);
-            
-            });
-            $(".sub").click(function(){
-                const x = $(".num1").val();
-                const y = $(".num2").val();
-                const z = x - y;
-                $(".result").attr("value",z);
-            
-            });
-            $(".dot").click(function(){
-                const x = $(".num1").val();
-                const y = $(".num2").val();
-                const z = x * y;
-                $(".result").attr("value",z);
-            });
-            $(".divide").click(function(){
-                const x = $(".num1").val();
-                const y = $(".num2").val();
-                const z = x / y;
+			$(".divide").click(function(){
+				const x = $(".num1").val();
+				const y = $(".num2").val();
+				const z = x / y;
+				$(".result").attr("value",z);
+			});
 
-                $(".result").attr("value",z);
+			$(".country").change(function(){
+				var selected = $("option:selected").val();
 
-            });
-
-
-            $(".country").change(function(){
-                 var selected = $("option:selected").val();
-
-                 if (parseInt(selected)) {
-                    $(".change").html("City :");
-                    $(".change1").html("Select City");
-                    $("#post").hide();
-                 }else{
-                    $(".change").html("State :");
-                    $(".change1").html("Select State");
-                    $("#post").show();
-                 }
-                 
-           
-
-                     });
-
-        }); 
-    </script>
+				if (parseInt(selected)) {
+					$(".change").html("City :");
+					$(".change1").html("Select City");
+					$("#post").hide();
+				} else {
+					$(".change").html("State :");
+					$(".change1").html("Select State");
+					$("#post").show();
+				}
+			});
+		});
+	</script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href=""></a>
-    </nav>
-    
-<h2>What is HTML ? <button class="bt1">Show</button></h2> 
-<p style="display:none;">Hyper Markup Language</p>
+	<nav class="navbar">
+		<a href=""></a>
+	</nav>
+	<h2>What is HTML ?
+		<button class="bt1">Show</button>
+	</h2>
+	<p style="display:none;">Hyper Markup Language</p>
+	<h3>Where is HTU</h3>
+	<input type="radio" name=""> <label class="true">Amman</label>
+	<input type="radio" name=""> <label class="false">irbid</label>
+	<input type="radio" name=""> <label class="false">Zarqa</label>
+	<input type="radio" name=""> <label class="false">Aqaba</label>
+	<button class="bt2">Check</button>
+	<br><br><br>
+	Num1:
+	<input type="number" name="" class="num1"><br>
+	Num2"
+	<input type="number" name="" class="num2">
+	<br>
+	<button class="sum"> + </button>
+	<button class="sub"> - </button>
+	<button class="dot"> * </button>
+	<button class="divide"> % </button>
+	<br><br>
+	Result:
+	<input type="number" name="" placeholder="sad" class="result">
+	<br><br><br>
+	<div>
+		<label>Country :</label>
+		<select name="country" class="country">
+			<option disabled>Select Country</option>
+			<option value="1">Jordan</option>
+			<option value="0">USA</option>
+		</select>
+		<br/>
+		<label class="change">City :</label>
+		<select name="country" class="country">
+			<option  class="change1" >Select City</option>
+		</select>
+		<div id="post" style="display: none;">
+		<label>Postal Code :</label>
+		<select>
+			<option>Select Postal Code</option>
+		</select>
+		</div>
+	</div>
+	<br/>
+	<a class="scrollup"></a>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var scrollbtn = false;
+			//detect scroll
+			$(window).scroll(function(){
+				if(scrollbtn == false){
+					var scrollTop = $(window).scrollTop();
+					var docHeight = $(document).height();
+					var winHeight = $(window).height();
+					var scrollPercent = (scrollTop) / (docHeight - winHeight);
+					var scrollPercentRounded = Math.round(scrollPercent*100);
 
+					if (scrollPercentRounded > 50) {
+						$('.scrollup').css({'bottom': 20}).fadeIn();
+					} else {
+						$('.scrollup').fadeOut();
+					}
+				}
+			});
 
-<h3>Where is HTU</h3>
-<input type="radio" name=""> <label class="true">Amman</label> 
-<input type="radio" name=""> <label class="false">irbid</label>  
-<input type="radio" name=""> <label class="false">Zarqa</label> 
-<input type="radio" name=""> <label class="false">Aqaba</label> 
-<button class="bt2">Check</button>
+			//scroll-to-top
+			$('.scrollup').click(function(){
+				scrollbtn = true;
+				var docheight = $(window).height();
 
-<br><br><br>
+				$('.scrollup').stop().animate({
+					'bottom' : docheight
+				},500).fadeOut(function(){
+					scrollbtn = false;
+				});
 
-    Num1 
-    <input type="number" name="" class="num1"><br>
-    Num2
-    <input type="number" name="" class="num2">
-    <br>
-    <button class="sum"> + </button>
-    <button class="sub"> - </button>
-    <button class="dot"> * </button>
-    <button class="divide"> % </button>
-    <br><br>
-    Result:
-    <input type="number" name="" placeholder="sad" class="result">
-    <br><br><br>
-    <div>
-        <label>Country :</label>
-        <select name="country" class="country">
-            <option disabled>Select Country</option>
-            <option value="1">Jordan</option>
-            <option value="0">USA</option>
-        </select><br/>
+				$("html, body").animate({ scrollTop: 0 }, 1200);
 
-        <label class="change">City :</label>
-        <select name="country" class="country">
-            <option  class="change1" >Select City</option>
-        </select>
-
-        <div id="post" style="display: none;">
-        <label>Postal Code :</label>
-        <select>
-            <option>Select Postal Code</option>
-        </select>
-        </div>
-    </div>  
-    <br>
-
-   
-
-
-    <a class="scrollup"></a>
-
-    <script type="text/javascript">
-    $(document).ready(function() {
-
-        var scrollbtn = false;
-
-        //detect scroll
-        $(window).scroll(function(){
-            if(scrollbtn == false){
-                var scrollTop = $(window).scrollTop();
-                var docHeight = $(document).height();
-                var winHeight = $(window).height();
-
-                var scrollPercent = (scrollTop) / (docHeight - winHeight);
-                var scrollPercentRounded = Math.round(scrollPercent*100);
-
-                if (scrollPercentRounded > 50) {
-                    $('.scrollup').css({'bottom': 20}).fadeIn();
-                } else {
-                    $('.scrollup').fadeOut();
-                }
-            }
-
-        });
-
-        //scroll-to-top
-        $('.scrollup').click(function(){
-            scrollbtn = true;
-            var docheight = $(window).height();
-            $('.scrollup').stop().animate({
-                'bottom' : docheight
-            },500).fadeOut(function(){
-                scrollbtn = false;
-            });
-
-            $("html, body").animate({ scrollTop: 0 }, 1200);
-
-            return false;
-        });
-    });
-    </script>
-
+				return false;
+			});
+		});
+	</script>
 </body>
 </html>
-
-
-
