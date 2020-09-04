@@ -10,9 +10,99 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="jquary.js"></script>
 	<script type="text/javascript" src="jquery.fireworks.js"></script>
+	<style>
+		#card-block {
+			box-shadow: 1px 1px 5px #000;
+			padding: 2px;
+			margin: 0 auto;
+			text-align: center;
+			height: 470px;
+			width: 620px;
+			border: 1px solid #c3c3c3;
+		}
+
+		.flip-card {
+			border: 1px solid #ccc;
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			perspective: 500px;  /* How card flip prespective to distance between screen and the card */
+		}
+
+		.inner {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			transition: transform 0.8s;
+			transform-style: preserve-3d;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		}
+
+		.front,
+		.back {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.front {
+			background-color: #bbb;
+			color: black;
+		}
+
+		.back {
+			background-color: #fff;
+			color: black;
+			transform: rotateY(180deg);
+		}
+
+		.counter {
+			box-shadow: 1px 1px 4px tomato;
+			padding: 30px;
+			margin: 0 auto;
+			width: 400px;
+			height: 35px;
+		}
+
+		.counter button {
+			float: right;
+			padding: 10px;
+			color: tomato;
+			background-color: #ddd;
+		}
+
+		.counter input {
+			width: 70px;
+			height: 20px;
+			font-size: 20px;
+		}
+
+		.result {
+			width: 25px;
+			padding: 2px;
+		}
+
+		#prevent {
+			position: absolute;
+			opacity: 0 ;
+			z-index: -1;
+			height: 470px;
+			width: 620px;
+			background-color: green;
+			display: inline-block;
+		}
+
+		.loser {
+			z-index: 55;
+			display: none;
+		}
+	</style>
 	<script type="text/javascript">
 		$(window).ready(function() {
 			var toggle=1, x, y, z = 0, counter = 0;
+
 			$(".flip-card").click(function() {
 				$(this).css("pointer-events", "none");
 				$(".result").attr("value", ++counter);
@@ -104,104 +194,12 @@
 					$(".inner").css("pointer-events","auto");
 					$("[selected]").removeAttr("selected");
 					$("#prevent").css("z-index","-1");
-					toggle=1;
-					x=0;
-					y=0;
-					z=0;
-					counter=0;
+
+					toggle = 1, x = 0, y = 0, z = 0, counter = 0;
 				});
 			});
 		});
 	</script>
-	<style>
-	#card-block {
-		box-shadow: 1px 1px 5px #000;
-		padding: 2px;
-		margin: 0 auto;
-		text-align: center;
-		height: 470px;
-		width: 620px;
-		border: 1px solid #c3c3c3;
-	}
-
-	.flip-card {
-		border: 1px solid #ccc;
-		display: inline-block;
-		width: 150px;
-		height: 150px;
-		perspective: 500px;  /* How card flip prespective to distance between screen and the card */
-	}
-
-	.inner {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		text-align: center;
-		transition: transform 0.8s;
-		transform-style: preserve-3d;
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	}
-
-	.front,
-	.back {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		backface-visibility: hidden;
-	}
-
-	.front {
-		background-color: #bbb;
-		color: black;
-	}
-
-	.back {
-		background-color: #fff;
-		color: black;
-		transform: rotateY(180deg);
-	}
-
-	.counter {
-		box-shadow: 1px 1px 4px tomato;
-		padding: 30px;
-		margin: 0 auto;
-		width: 400px;
-		height: 35px;
-	}
-
-	.counter button {
-		float: right;
-		padding: 10px;
-		color: tomato;
-		background-color: #ddd;
-	}
-
-	.counter input {
-		width: 70px;
-		height: 20px;
-		font-size: 20px;
-	}
-
-	.result {
-		width: 25px;
-		padding: 2px;
-	}
-
-	#prevent {
-		position: absolute;
-		opacity: 0 ;
-		z-index: -1;
-		height: 470px;
-		width: 620px;
-		background-color: green;
-		display: inline-block;
-	}
-
-	.loser {
-		z-index: 55;
-		display: none;
-	}
-	</style>
 </head>
 <body>
 	<div id="card-block">
