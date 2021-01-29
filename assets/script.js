@@ -11,7 +11,6 @@ const isDone = () => {
 				return;
 			}
 		});
-
 		// do some animation for future
 	}
 };
@@ -51,7 +50,6 @@ const handleCardRotate = (card = {}) => {
 	if (!card.getAttribute('data-card')) return;
 	const rotatedCard = Array.from(document.querySelectorAll('.rotate'));
 	const rotatedCardNum = rotatedCard.length;
-
 	switch (rotatedCardNum) {
 		case 0:
 			card.classList.add('rotate');
@@ -75,7 +73,6 @@ const handleCardRotate = (card = {}) => {
 const randomPair = (card) => {
 	const index = Math.floor(Math.random() * pair.length);
 	const random = pair[index];
-
 	card.setAttribute('data-card', random);
 	pair.splice(index, 1);
 };
