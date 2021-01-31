@@ -1,4 +1,4 @@
-const pair = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
+let counter = 0;
 
 /**
  * Check if the game ends
@@ -12,6 +12,7 @@ const isDone = () => {
 			}
 		});
 		// do some animation for future
+		alert('YOUUUUUUU ARE AAA WINNER')
 	}
 };
 
@@ -21,9 +22,11 @@ const isDone = () => {
  */
 const checkRotateCard = (rotatedCards) => {
 	const [firstCard, secondCard] = rotatedCards;
+	const counterElem = document.querySelector('.result');
 	const firstCardAttr = firstCard.getAttribute('data-card');
 	const secondCardAttr = secondCard.getAttribute('data-card');
 
+	counterElem.value = ++counter;
 	if (firstCardAttr === secondCardAttr) {
 		rotatedCards.forEach((rotatedCard) => {
 			rotatedCard.classList.add('success');
@@ -48,6 +51,7 @@ const checkRotateCard = (rotatedCards) => {
  */
 const handleCardRotate = (card = {}) => {
 	if (!card.getAttribute('data-card')) return;
+
 	const rotatedCard = Array.from(document.querySelectorAll('.rotate'));
 	const rotatedCardNum = rotatedCard.length;
 	switch (rotatedCardNum) {
@@ -70,17 +74,59 @@ const handleCardRotate = (card = {}) => {
  * Set random pair
  * @param {HTMLElement} card 
  */
-const randomPair = (card) => {
-	const index = Math.floor(Math.random() * pair.length);
-	const random = pair[index];
-	card.setAttribute('data-card', random);
-	pair.splice(index, 1);
+const randomPair = (cards) => {
+	const pair = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
+
+	cards.forEach((card) => {
+		const index = Math.floor(Math.random() * pair.length);
+		const random = pair[index];
+	
+		card.setAttribute('data-card', random);
+		pair.splice(index, 1);
+
+		card.classList.remove('rotate');
+		card.classList.remove('pointer-events');
+		card.classList.remove('success');
+	});
+};
+
+/**
+ * 
+ * @param {HTMLElement} card 
+ */
+const hintClick = (cards) => {
+	cards.forEach((card) => {
+		card.classList.add('rotate');
+		card.classList.add('pointer-events');
+	});
+
+	cards.forEach((card) => {
+		setTimeout(() => {
+			card.classList.remove('rotate');
+			card.classList.remove('pointer-events');
+		}, 1250);
+	});
 };
 
 document.addEventListener('DOMContentLoaded', () => {
 	const cards = document.querySelectorAll('.flip-card');
+	const tryAgain = document.querySelector('.try-again');
+	const counterElem = document.querySelector('.result');
+	const hintButton = document.querySelector('.hint');
+
 	cards.forEach((card) => {
-		randomPair(card);
-		card.addEventListener('click', () => handleCardRotate(card))
+		card.addEventListener('click', () => handleCardRotate(card, counterElem));
 	});
+
+	tryAgain.addEventListener('click', () => {
+		counter = 0;
+		counterElem.value = null;
+		randomPair(cards, counterElem);
+	});
+
+	hintButton.addEventListener('click', () => {
+		hintClick(cards);
+	});
+
+	randomPair(cards);
 });
