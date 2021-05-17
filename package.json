@@ -1,0 +1,19 @@
+{
+  "name": "find-the-pair-puzzle",
+  "version": "1.0.0",
+  "description": "https://mohammadshhadeh.github.io/find-the-pair-puzzle/",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadshhadeh/find-the-pair-puzzle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammadshhadeh/find-the-pair-puzzle/issues"
+  },
+  "homepage": "https://github.com/mohammadshhadeh/find-the-pair-puzzle#readme"
+}
