@@ -1,9 +1,7 @@
 let counter = 0;
 
-/**
- * Check if the game ends
- */
-const isDone = () => {
+
+const gameFinished = () => {
 	const success = document.querySelectorAll('.success');
 	if (success.length === 12) {
 		success.forEach(element => {
@@ -11,16 +9,13 @@ const isDone = () => {
 				return;
 			}
 		});
-		// do some animation for future
-		alert('YOUUUUUUU ARE AAA WINNER')
+
+		alert('HERE WE GO AGAIN!')
 	}
 };
 
-/**
- * Check if the pair are equal
- * @param {HTMLElement} rotatedCards 
- */
-const checkRotateCard = (rotatedCards) => {
+
+const checkRotatedCard = (rotatedCards) => {
 	const [firstCard, secondCard] = rotatedCards;
 	const counterElem = document.querySelector('.result');
 	const firstCardAttr = firstCard.getAttribute('data-card');
@@ -34,7 +29,7 @@ const checkRotateCard = (rotatedCards) => {
 			rotatedCard.removeAttribute('data-card');
 		})
 
-		isDone();
+		gameFinished();
 
 		return;
 	}
@@ -45,11 +40,7 @@ const checkRotateCard = (rotatedCards) => {
 	}) 
 };
 
-/**
- * Rotate card
- * @param {HTMLElement} card 
- */
-const handleCardRotate = (card = {}) => {
+const handleCardRotation = (card = {}) => {
 	if (!card.getAttribute('data-card')) return;
 
 	const rotatedCard = Array.from(document.querySelectorAll('.rotate'));
@@ -63,17 +54,14 @@ const handleCardRotate = (card = {}) => {
 			card.classList.add('rotate');
 			card.classList.add('pointer-events');
 			rotatedCard.push(card)
-			setTimeout(() => checkRotateCard(rotatedCard), 1500);
+			setTimeout(() => checkRotatedCard(rotatedCard), 1500);
 			break;
 		default:
 			// Nothing
 	}
 };
 
-/**
- * Set random pair
- * @param {HTMLElement} card 
- */
+
 const randomPair = (cards) => {
 	const pair = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
 
@@ -90,10 +78,6 @@ const randomPair = (cards) => {
 	});
 };
 
-/**
- * 
- * @param {HTMLElement} card 
- */
 const hintClick = (cards) => {
 	cards.forEach((card) => {
 		card.classList.add('rotate');
@@ -104,7 +88,7 @@ const hintClick = (cards) => {
 		setTimeout(() => {
 			card.classList.remove('rotate');
 			card.classList.remove('pointer-events');
-		}, 1250);
+		}, 1000);
 	});
 };
 
@@ -115,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const hintButton = document.querySelector('.hint');
 
 	cards.forEach((card) => {
-		card.addEventListener('click', () => handleCardRotate(card, counterElem));
+		card.addEventListener('click', () => handleCardRotation(card, counterElem));
 	});
 
 	tryAgain.addEventListener('click', () => {
