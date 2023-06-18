@@ -1,14 +1,27 @@
+:root {
+	color-scheme: dark;
+}
+
 * {
 	box-sizing: border-box;
+}
+
+body {
+	display: grid;
+	min-height: 100vh;
+	min-height: 100svh;
+	place-items: center;
+	margin: 0;
 }
 
 .card-block {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	max-width: 616px;
+	max-width: 682px;
 	margin: 0 auto;
 	flex-direction: column;
+	padding: 0 16px;
 }
 
 .card-block__content {
@@ -16,14 +29,17 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	margin: 32px 0;
+	border-radius: 8px;
 }
 
 .flip-card {
 	border: 1px solid #333;
-	margin: 2px;
+	margin: 4px;
 	position: relative;
 	width: 150px;
 	height: 150px;
+	border-radius: 8px;
+	cursor: pointer;
 }
 
 .flip-card.rotate .inner,
@@ -37,7 +53,7 @@
 
 .inner {
 	position: relative;
-	transition: all ease-in-out .5s;
+	transition: all ease-in-out 0.5s;
 	transform-style: preserve-3d;
 }
 
@@ -45,7 +61,10 @@
 	width: 100%;
 	padding-top: 100%;
 	backface-visibility: hidden;
-	background: gray;
+	border-radius: 8px;
+	background-color: rgba(255, 255, 255, 0.05);
+	box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+		0px 2px 1px -1px rgba(0, 0, 0, 0.12), 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
 }
 
 .back {
@@ -55,30 +74,32 @@
 	top: 0;
 	backface-visibility: hidden;
 	transform: rotateY(180deg);
-	transition: all .5s ease .2s;
+	transition: all 0.5s ease 0.2s;
+	border-radius: 8px;
+	filter: brightness(0.5);
 }
 
-.flip-card[data-card="1"].rotate  .back {
+.flip-card[data-card='1'].rotate .back {
 	background-color: yellow;
 }
 
-.flip-card[data-card="2"].rotate .back {
+.flip-card[data-card='2'].rotate .back {
 	background-color: red;
 }
 
-.flip-card[data-card="3"].rotate .back {
+.flip-card[data-card='3'].rotate .back {
 	background-color: green;
 }
 
-.flip-card[data-card="4"].rotate .back {
+.flip-card[data-card='4'].rotate .back {
 	background-color: pink;
 }
 
-.flip-card[data-card="5"].rotate .back {
+.flip-card[data-card='5'].rotate .back {
 	background-color: blue;
 }
 
-.flip-card[data-card="6"].rotate .back {
+.flip-card[data-card='6'].rotate .back {
 	background-color: orange;
 }
 
@@ -91,7 +112,11 @@
 .result {
 	width: 100%;
 	height: 40px;
-	padding: 8px;
+	padding: 8px 8px 8px 16px;
+	border-radius: 8px;
+	border: none;
+	font-size: 16px;
+	font-weight: bold;
 }
 
 .try-again {
@@ -108,15 +133,50 @@
 	height: 40px;
 	border: none;
 	background: #333;
-	color: #fff;
+	color: #fcfcfc;
 	padding: 0 18px;
 	border: 1px solid #333;
 	cursor: pointer;
 	font: 500 14px/1.1 'Open Sans';
-	transition: all ease-in .2s;
+	transition: all ease-in 0.2s;
+	font-weight: 600;
+	letter-spacing: 1.5px;
+	border-radius: 8px;
 }
 
 .btn-dark:hover {
 	background-color: #fff;
 	color: #333;
+}
+
+@media screen and (max-width: 768px) {
+	.card-block {
+		max-width: 532px;
+	}
+
+	.flip-card {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.card-block {
+		max-width: 412px;
+	}
+
+	.flip-card {
+		width: 75px;
+		height: 75px;
+	}
+
+	.btn-dark {
+		padding: 0 16px;
+		font-size: 12px;
+	}
+
+	.result {
+		padding: 8px 8px 8px 16px;
+		font-weight: bold;
+	}
 }
