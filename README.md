@@ -1,4 +1,4 @@
 # Find the pair puzzle
 https://mohammadshhadeh.github.io/find-the-pair-puzzle/
 
-![image](https://user-images.githubusercontent.com/57170207/112722450-b267c980-8f1a-11eb-8ffa-24a19925b613.png)
+![image](https://github.com/mohammadshhadeh/find-the-pair-puzzle/assets/57170207/ef291be0-da8c-4ee0-bb4d-23a4a386b4fc)
